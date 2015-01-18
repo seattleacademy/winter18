@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+        <title>Winter 13</title>
+       <link href="http://saasmath.seattleacademy.org/css/bootstrap.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+        <script>
+            $(document).ready(function() {
+                $('input').change(function() {
+ 
+                    correct=$(this).data('correct');
+                    response=$(this).val();
+ 
+                    if(correct==response){
+                        $(this).removeClass("incorrect").addClass("correct");
+                        numcorrect = $('#correct').text();
+                        //We multiply by 1 change from type text to number
+                        $('#correct').text(numcorrect*1+1);
+                    }
+                    else
+                    {
+                        $(this).removeClass("correct").addClass("incorrect");
+                        numerrors = $('#errors').text();
+                        $('#errors').text(numerrors*1+1);
+                    }
+ 
+                });
+            });
+        </script>
+ 
+        <style type="text/css">
+            .correct { 
+                background:green;
+            }
+ 
+            .incorrect { 
+                background:red;
+            }
+ 
+            #score{
+                border:2px dashed olive;
+            }
+ 
+        </style>
+ 
+    </head>
+ 
+    <body>
+        <div class="container">
+        <div id="score">
+            Correct: <span id="correct">0</span>
+            Errors:  <span id="errors">0</span>
+        </div>
+        <h2>Answer the following questions:</h2>
+        <p>\( \sqrt{64} \) = <input data-correct ="8" type="text"/><span></span></p>
+        <p>\( \sqrt[3]{512} \) = <input data-correct ="8" type="text"/><span></span></p>
+
+
+                <p>\( 64^\tfrac{2}{3} \) = <input data-correct ="16" type="text"/><span></span></p>
+        <p>Who was buried in Grant's tomb?<input data-correct ="Grant" type="text"/><span></span></p>
+    </div>
+ 
+        <h2>Entering Math Notation</h2>
+        <div>
+            When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+            $$x = {-b \over 2a}\pm { \sqrt{b^2-4ac} \over 2a}.$$
+        </div>
+ 
+        <p>You may find <a href="http://saasmath.seattleacademy.org/wiki/index.php/Help:Contents">
+                http://saasmath.seattleacademy.org/wiki/index.php/Help:Contents</a> 
+            helpful, but rather than the &lt;math&gt; tag, use
+            the &#92;&#40; and &#92;&#40; for inline expressions and open and close with &#36;&#36; for block expressions.</p>
+    </body>
+ 
+</html>
